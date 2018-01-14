@@ -22,3 +22,9 @@ $ python manage.py satrtapp diary
 $ python manage.py makemigrations diary
 $ python manage.py migrate
 ```
+
+### 3. create superuser for admin
+
+```
+$ python manage.py createsuperuser
+```
