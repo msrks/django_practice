@@ -9,8 +9,16 @@ $ python manage.py runserver
 $ python manage.py migrate
 ```
 
-create apps
+### 1. create apps (hello world)
 
 ```
 $ python manage.py startapp posts
+```
+
+### 2. create app w/ database
+
+```
+$ python manage.py satrtapp diary
+$ python manage.py makemigrations diary
+$ python manage.py migrate
 ```
