@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import DayCreateForm
 from .models import Day
 
@@ -10,6 +10,20 @@ def index(request):
 
 def add(request):
     form = DayCreateForm(request.POST or None)
+
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        return redirect('diary:index')
+
+    context = {
+        'form': form
+    }
+    return render(request, 'diary/day_form.html', context)
+
+def update(request, pk):
+    day = get_object_or_404(Day, pk=pk)
+
+    form = DayCreateForm(request.POST or None, instance=day)
 
     if request.method == 'POST' and form.is_valid():
         form.save()
