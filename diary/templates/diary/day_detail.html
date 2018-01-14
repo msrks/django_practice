@@ -1,0 +1,7 @@
+{% extends 'diary/base.html' %}
+
+{% block content %}
+<p>{{ day.title }}</p>
+<p>{{ day.text | linebreaksbr}}</p>
+<p>{{ day.date }}</p>
+{% endblock %}
